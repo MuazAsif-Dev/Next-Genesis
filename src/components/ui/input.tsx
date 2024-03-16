@@ -4,7 +4,7 @@ import {
 	InputProps,
 	VariantProps,
 } from "@nextui-org/react";
-import { FC, forwardRef } from "react";
+import { forwardRef } from "react";
 
 const CustomInputVariants = extendVariants(NextInput, {
 	variants: {
@@ -94,7 +94,7 @@ type InputVariantProps = VariantProps<typeof CustomInputVariants>;
 type MergedProps = InputVariantProps &
 	Omit<InputProps, keyof InputVariantProps>;
 
-const Input: FC<MergedProps> = forwardRef(function Input(
+const Input = forwardRef<HTMLInputElement, MergedProps>(function Input(
 	{ ...otherProps },
 	ref,
 ) {
